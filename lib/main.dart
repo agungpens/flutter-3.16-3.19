@@ -26,24 +26,31 @@ class HomePage extends StatelessWidget {
     Orientation orientation = MediaQuery.of(context).orientation;
 
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            'Screen width : ${screenSize.width.toStringAsFixed(2)}',
-            style: TextStyle(color: Colors.white, fontSize: 18),
-            textAlign: TextAlign.center,
-          ),
-          Text(
-            'Orientation : ${orientation == Orientation.portrait ? 'Portrait' : 'Landscape'}',
-            style: TextStyle(color: Colors.white, fontSize: 18),
-            textAlign: TextAlign.center,
-          )
-        ],
-      ),
-    );
+        backgroundColor: Colors.blueGrey,
+        body: Row(
+          children: [
+            Expanded(child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'Screen width : ${screenSize.width.toStringAsFixed(2)}',
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      'Orientation : ${orientation == Orientation.portrait ? 'Portrait' : 'Landscape'}',
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      textAlign: TextAlign.center,
+                    )
+                  ],
+                );
+              },
+            ))
+          ],
+        ));
   }
 }
 

@@ -40,9 +40,10 @@ class Rainbow extends StatelessWidget {
           color: Colors.green,
         )),
         Expanded(
+            flex: 2,
             child: Container(
-          color: Colors.blue,
-        )),
+              color: Colors.blue,
+            )),
         Expanded(
             child: Container(
           color: Colors.indigo,

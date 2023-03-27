@@ -13,40 +13,45 @@ class MyWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(),
-      home: ScrollingScreen(),
+      home: Rainbow(),
     );
   }
 }
 
-class ScrollingScreen extends StatelessWidget {
-  final List<int> numberList = <int>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
+class Rainbow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView.separated(
-          separatorBuilder: (BuildContext context, int index) {
-            return const SizedBox(
-              height: 10,
-            );
-          },
-          itemCount: numberList.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              height: 250,
-              decoration: BoxDecoration(
-                  color: Colors.grey, border: Border.all(color: Colors.black)),
-              child: Center(
-                child: Text(
-                  '${numberList[index]}',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 50,
-                  ),
-                ),
-              ),
-            );
-          }),
+    return Column(
+      children: <Widget>[
+        Expanded(
+            child: Container(
+          color: Colors.red,
+        )),
+        Expanded(
+            child: Container(
+          color: Colors.orange,
+        )),
+        Expanded(
+            child: Container(
+          color: Colors.yellow,
+        )),
+        Expanded(
+            child: Container(
+          color: Colors.green,
+        )),
+        Expanded(
+            child: Container(
+          color: Colors.blue,
+        )),
+        Expanded(
+            child: Container(
+          color: Colors.indigo,
+        )),
+        Expanded(
+            child: Container(
+          color: Colors.purple,
+        )),
+      ],
     );
   }
 }

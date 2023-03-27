@@ -24,22 +24,29 @@ class ScrollingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(itemBuilder: (BuildContext context, int index) {
-        return Container(
-          height: 250,
-          decoration: BoxDecoration(
-              color: Colors.grey, border: Border.all(color: Colors.black)),
-          child: Center(
-            child: Text(
-              '${numberList[index]}',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 50,
+      body: ListView.separated(
+          separatorBuilder: (BuildContext context, int index) {
+            return const SizedBox(
+              height: 10,
+            );
+          },
+          itemCount: numberList.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              height: 250,
+              decoration: BoxDecoration(
+                  color: Colors.grey, border: Border.all(color: Colors.black)),
+              child: Center(
+                child: Text(
+                  '${numberList[index]}',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 50,
+                  ),
+                ),
               ),
-            ),
-          ),
-        );
-      }),
+            );
+          }),
     );
   }
 }
